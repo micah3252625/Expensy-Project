@@ -11,14 +11,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.expensy.Data.UserDAO;
-import com.example.expensy.Data.UserDatabase;
-import com.example.expensy.ViewModel.User;
+import com.example.expensy.Data.ExpensyDatabase;
+import com.example.expensy.Entities.User;
 
 public class SignupActivity extends AppCompatActivity {
 
     private TextView toSignIn;
     private EditText editTextEmail, editTextName;
-    private UserDatabase database;
+    private ExpensyDatabase database;
     private UserDAO userDao, db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +35,10 @@ public class SignupActivity extends AppCompatActivity {
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextName = findViewById(R.id.editTextName);
 
-        database = Room.databaseBuilder(this, UserDatabase.class, "Expensy-Users")
+        database = Room.databaseBuilder(this, ExpensyDatabase.class, "Expensy-Users")
                 .allowMainThreadQueries().build();
         db = database.getUserDao();
-        userDao = Room.databaseBuilder(this, UserDatabase.class, "Expensy-Users").allowMainThreadQueries()
+        userDao = Room.databaseBuilder(this, ExpensyDatabase.class, "Expensy-Users").allowMainThreadQueries()
                 .build().getUserDao();
 
 

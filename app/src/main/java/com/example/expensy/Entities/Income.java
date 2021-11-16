@@ -1,25 +1,36 @@
-package com.example.expensy.ViewModel;
+package com.example.expensy.Entities;
 
-import androidx.annotation.NonNull;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
+import static androidx.room.ForeignKey.CASCADE;
 
-@Entity
+@Entity(foreignKeys = @ForeignKey(entity = User.class,
+        parentColumns = "id",
+        childColumns = "id_fkUser",
+        onDelete = CASCADE))
+
 public class Income implements Serializable {
     @PrimaryKey(autoGenerate = true) // auto-generated primary key
-    @NonNull
     // Column names declaration
     private int income_id; // user id
     private float income_amt;
     private String income_desc;
+    private long id_fkUser;
+
 
     public Income(float income_amt, String income_desc) {
         this.income_amt = income_amt;
         this.income_desc = income_desc;
     }
-
+    public long getId_fkUser() {
+        return id_fkUser;
+    }
+    public void setId_fkUser(long id) {
+        this.id_fkUser = id;
+    }
     public int getIncome_id() {
         return income_id;
     }

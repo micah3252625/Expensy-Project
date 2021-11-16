@@ -1,4 +1,4 @@
-package com.example.expensy.ViewModel;
+package com.example.expensy.Entities;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
@@ -6,13 +6,13 @@ import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
 
-@Entity // declare class as an Entity
+@Entity// declare class as an Entity
 public class User implements Serializable {
 
     @PrimaryKey(autoGenerate = true) // auto-generated primary key
     @NonNull
     // Column names declaration
-    private int id; // user id
+    private long id; // user id
     private String name;
     private String email;
 
@@ -22,7 +22,7 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

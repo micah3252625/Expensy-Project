@@ -10,9 +10,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.expensy.Data.ExpensyDatabase;
 import com.example.expensy.Data.UserDAO;
-import com.example.expensy.Data.UserDatabase;
-import com.example.expensy.ViewModel.User;
+import com.example.expensy.Entities.User;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -28,7 +28,7 @@ public class SiginActivity extends AppCompatActivity {
     private Button signInBtn;
     private TextView toSignUp;
     private GoogleSignInClient mGoogleSignInClient;
-    private UserDatabase database;
+    private ExpensyDatabase database;
     private UserDAO db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class SiginActivity extends AppCompatActivity {
         signInBtn = findViewById(R.id.signInBtn);
         toSignUp = findViewById(R.id.toSignUp);
 
-        database = Room.databaseBuilder(this, UserDatabase.class, "Expensy-Users")
+        database = Room.databaseBuilder(this, ExpensyDatabase.class, "Expensy-Users")
                 .allowMainThreadQueries().build();
         db = database.getUserDao();
 
