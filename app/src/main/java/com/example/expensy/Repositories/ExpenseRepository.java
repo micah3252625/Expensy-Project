@@ -1,4 +1,4 @@
-package com.example.expensy.Repository;
+package com.example.expensy.Repositories;
 
 import android.app.Application;
 import android.os.AsyncTask;
